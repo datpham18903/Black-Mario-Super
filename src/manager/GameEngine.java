@@ -37,7 +37,7 @@ public class GameEngine implements Runnable {
         this.soundManager = new SoundManager();
         this.mapManager = new MapManager();
 
-        JFrame frame = new JFrame("Super Mario Bros.");
+        JFrame frame = new JFrame("Super Mario Bros.: Lavaland");
         frame.add(this.uiManager);
         frame.addKeyListener(inputManager);
         frame.addMouseListener(inputManager);
