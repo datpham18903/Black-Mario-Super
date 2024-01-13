@@ -27,8 +27,8 @@ public class Bowser extends Enemy {
 		this.maxLives = 10; // Set the maximum number of lives
 		this.remainingLives = maxLives;
 		ImageLoader imageLoader = new ImageLoader();
-		BufferedImage fireball = imageLoader.loadImage("/Bowser_FireBall.png");
-		fireballStyle = imageLoader.loadImage("/Bowser_FireBall.png");
+		BufferedImage fireball = imageLoader.loadImage("/images/Bowser_FireBall.png");
+		fireballStyle = imageLoader.loadImage("/images/Bowser_FireBall.png");
 	}
 
 	public void draw(Graphics g) {

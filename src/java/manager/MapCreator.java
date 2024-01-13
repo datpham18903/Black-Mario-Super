@@ -26,8 +26,8 @@ class MapCreator {
 	MapCreator(ImageLoader imageLoader) {
 
 		this.imageLoader = imageLoader;
-		BufferedImage sprite = imageLoader.loadImage("/sprite.png");
-		this.backgroundImage = imageLoader.loadImage("/background.png");
+		BufferedImage sprite = imageLoader.loadImage("/images/sprite.png");
+		this.backgroundImage = imageLoader.loadImage("/images/lavaland.png");
 		this.superMushroom = imageLoader.getSubImage(sprite, 2, 5, 48, 48);
 		this.oneUpMushroom = imageLoader.getSubImage(sprite, 3, 5, 48, 48);
 		this.fireFlower = imageLoader.getSubImage(sprite, 4, 5, 48, 48);
@@ -42,13 +42,13 @@ class MapCreator {
 		this.koopaRight = imageLoader.getSubImage(sprite, 4, 3, 48, 64);
 		this.endFlag = imageLoader.getSubImage(sprite, 5, 1, 48, 48);
 		// bowser
-		this.bowser = imageLoader.loadImage("/bowser.png");
-		this.bowserRight = imageLoader.loadImage("/bowserRight.png");
-		this.bowserAtk = imageLoader.loadImage("/bowser_attack.png");
-		this.bowserAtkRight = imageLoader.loadImage("/bowser_attack_right.png");
-		this.koopafly = imageLoader.loadImage("/Koopa_Fly.png");
-		this.koopaflyRight = imageLoader.loadImage("/Koopa_Fly_Right.png");
-		this.chomper = imageLoader.loadImage("/spike.png");
+		this.bowser = imageLoader.loadImage("/images/bowser.png");
+		this.bowserRight = imageLoader.loadImage("/images/bowserRight.png");
+		this.bowserAtk = imageLoader.loadImage("/images/bowser_attack.png");
+		this.bowserAtkRight = imageLoader.loadImage("/images/bowser_attack_right.png");
+		this.koopafly = imageLoader.loadImage("/images/Koopa_Fly.png");
+		this.koopaflyRight = imageLoader.loadImage("/images/Koopa_Fly_Right.png");
+		this.chomper = imageLoader.loadImage("/images/spike.png");
 	}
 
 	Map createMap(String mapPath, double timeLimit) {

@@ -19,7 +19,7 @@ public class MarioForm {
         this.isFire = isFire;
 
         ImageLoader imageLoader = new ImageLoader();
-        BufferedImage fireball = imageLoader.loadImage("/sprite.png");
+        BufferedImage fireball = imageLoader.loadImage("/images/sprite.png");
         fireballStyle = imageLoader.getSubImage(fireball, 3, 4, 24, 24);
     }
 

@@ -17,10 +17,10 @@ public class ImageLoader {
 
 
     public ImageLoader(){
-        marioForms = loadImage("/mario-forms.png");
-        brickAnimation = loadImage("/brick-animation.png");
-        bowser = loadImage("/bowser.png");
-        koopafly = loadImage("/Koopa_Fly.png");
+        marioForms = loadImage("/images/black-mario-forms.png");
+        brickAnimation = loadImage("/images/brick-animation.png");
+        bowser = loadImage("/images/bowser.png");
+        koopafly = loadImage("/images/Koopa_Fly.png");
     }
 
     public BufferedImage loadImage(String path){
