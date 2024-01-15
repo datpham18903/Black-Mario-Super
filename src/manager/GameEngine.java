@@ -35,7 +35,9 @@ public class GameEngine implements Runnable {
         this.camera = new Camera();
         this.uiManager = new UIManager(this, 1268, 708);
         this.soundManager = new SoundManager();
+
         this.mapManager = new MapManager();
+
 
         JFrame frame = new JFrame("Super Mario Bros.: Lavaland");
         frame.add(this.uiManager);
@@ -106,13 +108,12 @@ public class GameEngine implements Runnable {
         boolean loaded = this.mapManager.createMap(this.imageLoader, path);
         if (loaded) {
             this.setGameStatus(GameStatus.RUNNING);
-            this.soundManager.restartBackground();
+            this.soundManager.restartBackground();  // Start playing "background" audio
         } else {
             this.setGameStatus(GameStatus.START_SCREEN);
         }
-
     }
-@Override
+    @Override
     public void run() {
         while(this.isRunning && !this.thread.isInterrupted()) {
             try {
@@ -157,8 +158,18 @@ public class GameEngine implements Runnable {
         this.updateLocations();
         this.checkCollisions();
         this.updateCamera();
+
         if (this.isGameOver()) {
             this.setGameStatus(GameStatus.GAME_OVER);
+            this.soundManager.playGameOver();
+        }
+        if (this.mapManager.isBowserDefeated()) {
+            this.soundManager.stopBowser(); // Stop 'bowser' audio
+
+            this.soundManager.playBowserDefeated();
+        }
+        if (this.mapManager.hasMarioReachedEndPoint() && !this.soundManager.isSpecificPointReachedSoundPlayed()) {
+            this.soundManager.playSpecificPointReached();
         }
         int missionPassed = this.passMission();
         if (missionPassed > -1) {
@@ -166,7 +177,9 @@ public class GameEngine implements Runnable {
         } else if (this.mapManager.endLevel()) {
             this.setGameStatus(GameStatus.MISSION_PASSED);
         }
+
     }
+
 
     private void updateCamera() {
         Mario mario = mapManager.getMario();
@@ -230,7 +243,7 @@ public class GameEngine implements Runnable {
             if (input == ButtonAction.PAUSE_RESUME) {
                 this.pauseGame();
             }
-        }else if (gameStatus == GameStatus.GAME_OVER) {
+        } else if (gameStatus == GameStatus.GAME_OVER) {
             if (input == ButtonAction.SELECT
                     && gameOverMenu == GameOverMenu.START_GAME) {
                 resetCamera();
@@ -284,12 +297,11 @@ public class GameEngine implements Runnable {
     private void pauseGame() {
         if (this.gameStatus == GameStatus.RUNNING) {
             this.setGameStatus(GameStatus.PAUSED);
-            this.soundManager.pauseBackground();
+            this.soundManager.pauseCurrentAudio();
         } else if (this.gameStatus == GameStatus.PAUSED) {
             this.setGameStatus(GameStatus.RUNNING);
-            this.soundManager.resumeBackground();
+            this.soundManager.resumeCurrentAudio();
         }
-
     }
 
     public void shakeCamera() {
@@ -308,15 +320,18 @@ public class GameEngine implements Runnable {
         return this.gameStatus;
     }
     public GameOverMenu getGameOverMenu() {
+        this.soundManager.stopAndResetAudio();
         return gameOverMenu;
     }
 
     public MissionPassedSelection getMissionPassedSelection() {
+        this.soundManager.stopAndResetAudio();
         return missionPassedSelection;
     }
 
 
     public StartScreenSelection getStartScreenSelection() {
+        this.soundManager.stopAndResetAudio();
         return this.startScreenSelection;
     }
 
@@ -365,6 +380,7 @@ public class GameEngine implements Runnable {
     }
 
     public void playMarioDies() {
+        this.soundManager.stopAndResetAudio();
         this.soundManager.playMarioDies();
     }
 

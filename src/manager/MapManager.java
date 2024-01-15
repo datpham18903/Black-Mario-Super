@@ -14,6 +14,7 @@ import model.enemy.Enemy;
 import model.enemy.spike;
 import model.hero.Fireball;
 import model.hero.Mario;
+import model.enemy.Bowser;
 import model.hero.MarioForm;
 import model.prize.BoostItem;
 import model.prize.Coin;
@@ -26,6 +27,14 @@ public class MapManager {
 	private Map map;
 
 	public MapManager() {
+	}
+	public boolean isBowserDefeated() {
+		return !this.map.isBowserExist();
+	}
+	public boolean hasMarioReachedEndPoint() {
+		int specificPoint = 7800; // Change this to the desired x-coordinate
+		return this.getMario().getX() >= specificPoint
+				&& !this.map.getEndPoint().isTouched();
 	}
 
 	public void updateLocations() {
@@ -114,7 +123,7 @@ public class MapManager {
 		int barHeight = 10;
 		int x = (int) bowser.getX();
 		int y = (int) bowser.getY() - 10; // Position the health bar 20 pixels
-											// above Bowser
+		// above Bowser
 		float healthPercentage = (float) bowser.getRemainingLives()
 				/ bowser.getMaxLives();
 
@@ -129,7 +138,7 @@ public class MapManager {
 				&& !this.map.getEndPoint().isTouched()) {
 			if (this.map.isBowserExist()) {
 				return -1; // Mario cannot pass the mission if Bowser still
-							// exists
+				// exists
 			} else {
 				this.map.getEndPoint().setTouched(true);
 				int height = (int) this.getMario().getY();
@@ -354,7 +363,7 @@ public class MapManager {
 
 				if (enemy.getY()
 						+ (double) enemy.getDimension().height > this.map
-								.getBottomBorder()) {
+						.getBottomBorder()) {
 					enemy.setFalling(false);
 					enemy.setVelY(0.0);
 					enemy.setY(this.map.getBottomBorder()
