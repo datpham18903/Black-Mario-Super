@@ -4,15 +4,6 @@
 </div>
 </br>
 
-<!-- Shield.io Badges -->
-<div align="center">
-	
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
-</div>
 
 
 <!-- Welcome line -->
@@ -142,12 +133,3 @@ This project makes use of numerous open-source tools, OpenAI, and libraries. We 
 
 <p align="right">(<a href="#header">Back to top</a>)</p>
 
-<!-- Badges link-->
-[contributors-shield]: https://img.shields.io/github/contributors/MicroGix/Influence-of-factors-on-students-performence?style=for-the-badge&label=Contributors 
-[contributors-url]: https://github.com/MicroGix/OOP_Project/graphs/contributors
-[forks-shield]:https://img.shields.io/github/forks/MicroGix/Influence-of-factors-on-students-performence?label=Folks&style=for-the-badge
-[forks-url]: https://github.com/MicroGix/OOP_Project/forks
-[stars-shield]: https://img.shields.io/github/stars/MicroGix/Influence-of-factors-on-students-performence?style=for-the-badge&label=Stars
-[stars-url]: https://github.com/MicroGix/Influence-of-factors-on-students-performence/stargazers
-[issues-shield]: https://img.shields.io/github/issues/MicroGix/Influence-of-factors-on-students-performence?style=for-the-badge&label=Issues
-[issues-url]: https://github.com/MicroGix/Influence-of-factors-on-students-performence/issues
