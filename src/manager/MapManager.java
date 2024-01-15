@@ -199,18 +199,14 @@ public class MapManager {
 			Enemy enemy = (Enemy)var7.next();
 			enemyTopBounds = enemy.getTopBounds();
 			if (marioBottomBounds.intersects(enemyTopBounds)) {
-				if (enemy instanceof spike|| enemy instanceof Bowser) {
-					if (mario.isSuper() || mario.isFire()) {
-						Animation animation = new Animation(engine.getImageLoader().getLeftFrames(0), engine.getImageLoader().getRightFrames(0));
-						mario.setMarioForm(new MarioForm(animation, false,false));
-						mario.setDimension(48, 48); // Add this line to update the hitbox
-						toBeRemoved.add(enemy); // spike dies
-					} else {
-						mario.setRemainingLives(mario.getRemainingLives() - 1); // Mario dies
-						this.resetCurrentMap(engine);
-						return;
-					}
-
+				if (enemy instanceof Bowser|| enemy instanceof spike) {
+					mario.setRemainingLives(mario.getRemainingLives() - 1); // Mario dies
+					// Reset Mario to normal form when the game restarts
+					Animation animation = new Animation(engine.getImageLoader().getLeftFrames(0), engine.getImageLoader().getRightFrames(0));
+					mario.setMarioForm(new MarioForm(animation, false,false));
+					mario.setDimension(48, 48); // Update the hitbox
+					this.resetCurrentMap(engine);
+					return;
 				} else {
 					mario.acquirePoints(100);
 					toBeRemoved.add(enemy);
@@ -218,6 +214,7 @@ public class MapManager {
 				}
 			}
 		}
+
 
 		if (mario.getY() + (double)mario.getDimension().height >= this.map.getBottomBorder()) {
 			mario.setY(this.map.getBottomBorder() - (double)mario.getDimension().height);
