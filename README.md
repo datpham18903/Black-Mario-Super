@@ -125,7 +125,7 @@ This project makes use of numerous open-source tools, OpenAI, and libraries. We 
 
 <!-- REFERENCES -->
 # References
-* https://github.com/mostafaHegab/Chicken-Invaders
+* https://github.com/ahmetcandiroglu/Super-Mario-Bros
 * https://wallpapercave.com/w/wp7872568
 * https://openjfx.io/#
 * https://www.youtube.com/@gasparcoding
