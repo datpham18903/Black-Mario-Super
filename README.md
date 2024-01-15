@@ -57,8 +57,6 @@
 -   Java 2D
 
 
-*Install Game*: Navigate to your local game directory and add necessary packages (set up JDK and JavaFX)
-
 <!-- MOTIVATION -->
 ## Motivation 
 We are working with this game as our project lab of Object Oriented Programming is a 4-credit course. During our investigation into how to create 2D games with Java, we made the decision to enhance the Mario game, which was formerly quite well-known and familiar to many people.
