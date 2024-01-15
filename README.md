@@ -98,6 +98,7 @@ We are working with this game as our project lab of Object Oriented Programming 
   
 ![My Image](assets/Design1.png)
 ![My Image](assets/Design2.png)
+![My Image](assets/BossFight.png)
 
 - UML
 ![My Image](assets/UML.png)
