@@ -1,6 +1,6 @@
 <div id="header" align="center">
 <!-- PROJECT LOGO -->
-   <img src="./assets/logo/logo.png" alt="Logo" width="200" height="200">
+   <img src="./assets/logo.png" alt="Logo" width="200" height="200">
 </div>
 </br>
 
@@ -107,11 +107,11 @@ We are working with this game as our project lab of Object Oriented Programming 
   - ABOUT: introduce the authors and developers who made this game
 - Design
   
-![My Image](assets/logo/Design1.png)
-![My Image](assets/logo/Design2.png)
+![My Image](assets/Design1.png)
+![My Image](assets/Design2.png)
 
 - UML
-![My Image](assets/logo/UML.png)
+![My Image](assets/UML.png)
 
 <!-- CHALLENGES -->
 # Challenges
