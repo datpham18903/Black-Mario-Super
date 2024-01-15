@@ -113,7 +113,7 @@ We are working with this game as our project lab of Object Oriented Programming 
 <!-- ACKNOWLEDGMENTS -->
 # Acknowledgments
 - We wish to express our profound appreciation to everyone who played a part in the successful completion of our OOP game project. This adventure has been immensely fulfilling, and the contributions of each team member have been indispensable.
- Our friends’ feedback and suggestions have been invaluable. Their perspectives have greatly enhanced the gaming experience. We extend our thanks to our beta testers who generously offered their time to aid us in perfecting our game. 
+- Our friends’ feedback and suggestions have been invaluable. Their perspectives have greatly enhanced the gaming experience. We extend our thanks to our beta testers who generously offered their time to aid us in perfecting our game. 
 [!IMPORTANT]
 This project makes use of numerous open-source tools, OpenAI, and libraries. We express our deep gratitude to the developers and maintainers of these resources. Their contributions have been crucial in making our game a reality.
 
