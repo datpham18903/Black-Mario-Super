@@ -103,6 +103,7 @@ We are working with this game as our project lab of Object Oriented Programming 
 - UML
 ![My Image](assets/UML.png)
 
+
 <!-- CHALLENGES -->
 # Challenges
 - Interacting with Pre-existing Code: The established codebase was complex to comprehend and modify. At times, the rigidity of the classes and packages made the implementation of new features challenging.
