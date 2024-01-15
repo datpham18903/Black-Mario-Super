@@ -9,10 +9,17 @@ import java.io.InputStream;
 public class SoundManager {
 
     private Clip background;
+    private Clip bowserAudio;
+    private Clip victoryAudio;
     private long clipTime = 0;
+    private boolean isBowserDefeatedSoundPlayed = false;
+    private boolean isSpecificPointReachedSoundPlayed = false;
+    private Clip currentAudio;
 
     public SoundManager() {
         background = getClip(loadAudio("background"));
+        bowserAudio = getClip(loadAudio("bowser"));
+        victoryAudio = getClip(loadAudio("victory"));
     }
 
     private AudioInputStream loadAudio(String url) {
@@ -32,6 +39,7 @@ public class SoundManager {
         try {
             Clip clip = AudioSystem.getClip();
             clip.open(stream);
+            currentAudio = clip;  // Set the current audio clip
             return clip;
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,13 +47,36 @@ public class SoundManager {
 
         return null;
     }
+    public void pauseCurrentAudio() {
+        if (background.isRunning()) {
+            clipTime = background.getMicrosecondPosition();
+            background.stop();
+            currentAudio = background;
+        }
+        if (bowserAudio.isRunning()) {
+            clipTime = bowserAudio.getMicrosecondPosition();
+            bowserAudio.stop();
+            currentAudio = bowserAudio;
+        }
+    }
 
-    public void resumeBackground(){
+    public void resumeCurrentAudio() {
+        if (currentAudio != null) {
+            currentAudio.setMicrosecondPosition(clipTime);
+            currentAudio.start();
+        }
+    }
+
+
+
+
+
+    public void resumeBackground() {
         background.setMicrosecondPosition(clipTime);
         background.start();
     }
 
-    public void pauseBackground(){
+    public void pauseBackground() {
         clipTime = background.getMicrosecondPosition();
         background.stop();
     }
@@ -58,54 +89,75 @@ public class SoundManager {
     public void playJump() {
         Clip clip = getClip(loadAudio("jump"));
         clip.start();
-
     }
 
     public void playCoin() {
         Clip clip = getClip(loadAudio("coin"));
         clip.start();
-
     }
 
     public void playFireball() {
         Clip clip = getClip(loadAudio("fireball"));
         clip.start();
-
     }
 
     public void playGameOver() {
         Clip clip = getClip(loadAudio("gameOver"));
         clip.start();
-
     }
 
     public void playStomp() {
         Clip clip = getClip(loadAudio("stomp"));
         clip.start();
-
     }
 
     public void playOneUp() {
         Clip clip = getClip(loadAudio("oneUp"));
         clip.start();
-
     }
 
     public void playSuperMushroom() {
-
         Clip clip = getClip(loadAudio("superMushroom"));
         clip.start();
-
     }
 
     public void playMarioDies() {
-
         Clip clip = getClip(loadAudio("marioDies"));
         clip.start();
-
     }
 
-    public void playFireFlower() {
 
+    public void playFireFlower() {
+        // Add logic for playing Fire Flower sound
+    }
+    public void stopBowser() {
+
+        bowserAudio.stop();
+    }
+
+    public void playBowserDefeated() {
+        if (!isBowserDefeatedSoundPlayed) {
+            bowserAudio.stop();
+            victoryAudio.setMicrosecondPosition(0);  // Set the victory audio position to the beginning
+            victoryAudio.start();
+            isBowserDefeatedSoundPlayed = true;
+        }
+    }
+    public void playSpecificPointReached() {
+        if (!isSpecificPointReachedSoundPlayed) {
+            background.stop();
+            bowserAudio.start();
+            isSpecificPointReachedSoundPlayed = true;
+        }
+    }
+
+    public boolean isSpecificPointReachedSoundPlayed() {
+        return isSpecificPointReachedSoundPlayed;
+    }
+    public void stopAndResetAudio() {
+        bowserAudio.stop();
+        background.stop();
+        isBowserDefeatedSoundPlayed = false;
+        isSpecificPointReachedSoundPlayed = false;
     }
 }
