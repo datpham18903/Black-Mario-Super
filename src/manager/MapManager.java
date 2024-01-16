@@ -1,5 +1,4 @@
 package manager;
-
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import model.enemy.Enemy;
 import model.enemy.spike;
 import model.hero.Fireball;
 import model.hero.Mario;
-import model.enemy.Bowser;
 import model.hero.MarioForm;
 import model.prize.BoostItem;
 import model.prize.Coin;
@@ -56,14 +54,6 @@ public class MapManager {
 		MapCreator mapCreator = new MapCreator(loader);
 		this.map = mapCreator.createMap("/maps/" + path, 400.0);
 		return this.map != null;
-	}
-	public boolean createMap(ImageLoader loader, String path, Mario mario) {
-		boolean result = this.createMap(loader, path);
-		if (result) {
-			mario.resetLocation();
-			map.setMario(mario);
-		}
-		return result;
 	}
 
 	public void acquirePoints(int point) {
@@ -117,7 +107,7 @@ public class MapManager {
 		}
 		this.addObjects(addObjects);
 	}
-
+// Draw heath
 	private void drawHealthBar(Graphics2D g2, Bowser bowser) {
 		int barWidth = 150;
 		int barHeight = 10;
@@ -137,8 +127,7 @@ public class MapManager {
 		if (this.getMario().getX() >= this.map.getEndPoint().getX()
 				&& !this.map.getEndPoint().isTouched()) {
 			if (this.map.isBowserExist()) {
-				return -1; // Mario cannot pass the mission if Bowser still
-				// exists
+				return -1; // Mario cannot pass the mission if Bowser still exists
 			} else {
 				this.map.getEndPoint().setTouched(true);
 				int height = (int) this.getMario().getY();
@@ -167,7 +156,6 @@ public class MapManager {
 			this.checkPrizeContact(engine);
 			this.checkFireballContact();
 		}
-
 	}
 
 	private void checkBottomCollisions(GameEngine engine) {
@@ -242,7 +230,6 @@ public class MapManager {
 				}
 			}
 		}
-
 	}
 
 	private void checkMarioHorizontalCollision(GameEngine engine) {
@@ -399,7 +386,7 @@ public class MapManager {
 	private void handleBowserCollision(Bowser bowser) {
 		bowser.reduceLives();
 		if (bowser.getRemainingLives() <= 0) {
-			this.getMario().acquirePoints(1000);
+			this.getMario().acquirePoints(5000);
 			this.map.removeEnemy(bowser);
 		}
 
