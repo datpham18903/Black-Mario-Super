@@ -364,7 +364,8 @@ public class GameEngine implements Runnable {
     }
 
     private int passMission() {
-        return this.mapManager.passMission();
+        return this.mapManager.
+                passMission();
     }
 
     public void playCoin() {

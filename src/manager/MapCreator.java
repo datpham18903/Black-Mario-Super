@@ -143,7 +143,7 @@ class MapCreator {
 
 	private Prize generateRandomPrize(double x, double y) {
 		Prize generated;
-		int random = (int) (Math.random() * 6);
+		int random = (int) (Math.random() * 4);
 
 		if (random == 0) { // super mushroom
 			generated = new SuperMushroom(x, y, this.superMushroom);
