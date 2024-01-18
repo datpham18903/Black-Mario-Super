@@ -125,11 +125,12 @@ This project makes use of numerous open-source tools, OpenAI, and libraries. We 
 
 <!-- REFERENCES -->
 # References
-* https://github.com/ahmetcandiroglu/Super-Mario-Bros
-* https://wallpapercave.com/w/wp7872568
-* https://openjfx.io/#
-* https://www.youtube.com/@gasparcoding
-  
+Candiroglu, Ahmet. “Classic Super Mario Bros. game implemented with Java for CS319 course.” GitHub, https://github.com/ahmetcandiroglu/Super-Mario-Bros. Accessed 18 Jan. 20241.
+Baker, Ben. “Super Mario’s First 14 Video Games (in Chronological Order).” TheGamer, 23 Feb. 2021, www.thegamer.com/super-mario-first-games-chronological-ranked/#mario-bros-game-amp-watch. 
+Fakhroutdinov, Kirill. “Dependency in UML.” UML Graphical Notation Overview, Examples, and Reference., www.uml-diagrams.org/dependency.html. Accessed 18 Jan. 2024. 
+Biniasz, Kyle. “What Are OOP Concepts in Java? 4 Primary Concepts.” Stackify, 1 May 2023, stackify.com/oops-concepts-in-java/. 
+“Code a 2D Game Engine Using Java - Full Course for Beginners.” YouTube, YouTube, 3 Jan. 2022, https://www.youtube.com/watch?v=025QFeZfeyM&feature=youtu.be. Accessed 18 Jan. 2024. 
+
 
 <p align="right">(<a href="#header">Back to top</a>)</p>
 
